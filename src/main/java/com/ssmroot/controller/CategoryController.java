@@ -1,19 +1,18 @@
-package com.how2java.controller;
+package com.ssmroot.controller;
 
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.how2java.pojo.Category;
-import com.how2java.service.CategoryService;
-import com.how2java.util.Page;
+import com.ssmroot.pojo.Category;
+import com.ssmroot.service.CategoryService;
+import com.ssmroot.util.Page;
 
 // 告诉spring mvc这是一个控制器类
 @Controller

@@ -1,4 +1,4 @@
-package com.how2java.util;
+package com.ssmroot.util;
 
 public class Page {
 

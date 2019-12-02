@@ -1,10 +1,9 @@
-package com.how2java.mapper;
+package com.ssmroot.mapper;
  
 import java.util.List;
 
-import com.how2java.pojo.Category;
-import com.how2java.util.Page;
- 
+import com.ssmroot.pojo.Category;
+
 public interface CategoryMapper {
  
       

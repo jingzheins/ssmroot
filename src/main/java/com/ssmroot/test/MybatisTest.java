@@ -1,4 +1,4 @@
-package com.how2java.test;
+package com.ssmroot.test;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.how2java.mapper.CategoryMapper;
-import com.how2java.pojo.Category;
+import com.ssmroot.mapper.CategoryMapper;
+import com.ssmroot.pojo.Category;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
