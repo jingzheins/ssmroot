@@ -19,11 +19,10 @@
           <context:include-filter type="annotation" 
           expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
     <mvc:annotation-driven />
-    
     <mvc:default-servlet-handler />
-
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
 
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
