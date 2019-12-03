@@ -18,21 +18,21 @@
    <context:annotation-config />
 	<context:component-scan base-package="com.ssmroot.service" />
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
-	  <property name="driverClassName">  
-	      <value>com.mysql.jdbc.Driver</value>  
-	  </property>  
-	  <property name="url">  
-	      <value>jdbc:mysql://47.95.2.75:3306/ssmroot?characterEncoding=UTF-8</value>
-	
-	  </property>  
-	  <property name="username">  
-	      <value>ssmroot</value>
-	  </property>  
-	  <property name="password">  
-	      <value>N87pt8PZR3aSCpiA</value>
-	  </property>  	
-	</bean>
+	<!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  -->
+	  <!--<property name="driverClassName">  -->
+	      <!--<value>com.mysql.jdbc.Driver</value>  -->
+	  <!--</property>  -->
+	  <!--<property name="url">  -->
+	      <!--<value>jdbc:mysql://47.95.2.75:3306/ssmroot?characterEncoding=UTF-8</value>-->
+	<!---->
+	  <!--</property>  -->
+	  <!--<property name="username">  -->
+	      <!--<value>ssmroot</value>-->
+	  <!--</property>  -->
+	  <!--<property name="password">  -->
+	      <!--<value>N87pt8PZR3aSCpiA</value>-->
+	  <!--</property>  	-->
+	<!--</bean>-->
 	
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -50,6 +50,25 @@
 		      </bean>
 		    </array>
 		  </property>		
+	</bean>
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="clone">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://47.95.2.75:3306/ssmroot?characterEncoding=UTF-8"/>
+		<property name="username" value="ssmroot"/>
+		<property name="password" value="N87pt8PZR3aSCpiA"/>
+		<!-- 配置初始化大小、最小、最大 -->
+		<!-- 通常来说，只需要修改initialSize、minIdle、maxActive -->
+		<!-- 初始化时建立物理连接的个数，缺省值为0 -->
+		<property name="initialSize" value="5"/>
+		<!-- 最小连接池数量 -->
+		<property name="minIdle" value="5"/>
+		<!-- 最大连接池数量，缺省值为8 -->
+		<property name="maxActive" value="20"/>
+		<!-- 获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。 -->
+		<property name="maxWait" value="60000"/>
+		<!-- 添加此处作用是为了在SQL监控页面显示sql执行语句，不配置不显示 -->
+		<property name="filters" value="stat,wall,log4j" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
