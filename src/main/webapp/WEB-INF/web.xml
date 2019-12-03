@@ -12,7 +12,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	
 	<!-- spring mvc核心：分发servlet -->
 	<servlet>
@@ -69,5 +69,9 @@
 		<url-pattern>/druid/*</url-pattern>
 	</servlet-mapping>
 	<!-- 连接池 启用Web监控统计功能 end -->
-	
+	<!-- 打开springMVC静态资源拦截器，不拦截swagger下的资源 -->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/swagger/*</url-pattern>
+	</servlet-mapping>
 </web-app>
