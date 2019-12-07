@@ -1,10 +1,16 @@
 package com.ssmroot.controller;
 
+import com.ssmroot.pojo.User;
+import com.ssmroot.service.IUserService;
+import com.ssmroot.util.ResultVO;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -18,6 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    IUserService iUserService;
+
 	@ResponseBody
     @RequestMapping(value = "userindex")
     @ApiOperation(value = "返回Map对象")
@@ -25,4 +34,16 @@ public class UserController {
     public String userindex(){
 	    return "userindex";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "insertUser")
+    public ResultVO inserUser(){
+        User user = new User();
+        user.setCreatetime(new Date());
+        user.setUsersession("12345");
+        user.setUsername("惊蛰");
+        new ResultVO(iUserService.insertUser(user));
+        return new ResultVO("success");
+    }
+
 }

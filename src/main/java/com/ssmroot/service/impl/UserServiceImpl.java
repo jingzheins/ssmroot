@@ -4,6 +4,8 @@ import com.ssmroot.pojo.User;
 import com.ssmroot.mapper.UserMapper;
 import com.ssmroot.service.IUserService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,5 +18,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
-	
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public int insertUser(User user) {
+        return userMapper.userInsert(user);
+    }
 }
