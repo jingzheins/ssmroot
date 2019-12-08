@@ -3,6 +3,8 @@ package com.ssmroot.mapper;
 import com.ssmroot.pojo.User;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
   *  Mapper 接口
@@ -13,6 +15,16 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface UserMapper extends BaseMapper<User> {
 
-    int userInsert(User user);
+    public int add(User User);
+
+    public void delete(int id);
+
+    public User get(int id);
+
+    public int update(User User);
+
+    public List<User> list();
+
+    public int count();
 
 }
