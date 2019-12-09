@@ -10,7 +10,7 @@
 		<result column="createtime" property="createtime" />
 	</resultMap>
 	<insert id="add" parameterType="User" >
-            insert into User ( name ) values (#{name})
+            insert into User ( usersession, username ,createtime) values (#{usersession},#{username},#{createtime})
         </insert>
 
 	<delete id="delete" parameterType="User" >

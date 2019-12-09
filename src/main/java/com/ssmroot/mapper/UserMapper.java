@@ -25,6 +25,4 @@ public interface UserMapper extends BaseMapper<User> {
 
     public List<User> list();
 
-    public int count();
-
 }
