@@ -9,23 +9,5 @@
 		<result column="username" property="username" />
 		<result column="createtime" property="createtime" />
 	</resultMap>
-	<insert id="add" parameterType="User" >
-            insert into User ( usersession, username ,createtime) values (#{usersession},#{username},#{createtime})
-        </insert>
-
-	<delete id="delete" parameterType="User" >
-            delete from User where id= #{id}
-        </delete>
-
-	<select id="get" parameterType="User" resultType="User">
-            select * from   User  where id= #{id}
-        </select>
-
-	<update id="update" parameterType="User" >
-            update User set usersession=#{usersession},username=#{username} where id=#{id}
-        </update>
-	<select id="list" resultType="User">
-            select * from   User
-        </select>
 
 </mapper>

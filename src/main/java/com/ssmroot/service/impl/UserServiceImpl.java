@@ -24,6 +24,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public int insertUser(User user) {
-        return userMapper.add(user);
+        return userMapper.insert(user);
     }
 }

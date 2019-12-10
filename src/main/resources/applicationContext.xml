@@ -71,8 +71,14 @@
 		<property name="filters" value="stat,wall,log4j" />
 	</bean>
 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.ssmroot.mapper"/>
+		<property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
+		<property name="properties">
+			<value>
+				mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.special.InsertListMapper
+			</value>
+		</property>
 	</bean>
 	
 

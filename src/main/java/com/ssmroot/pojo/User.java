@@ -1,7 +1,8 @@
 package com.ssmroot.pojo;
 
-import java.util.Date;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -12,10 +13,12 @@ import java.io.Serializable;
  * @author qlq
  * @since 2019-12-03
  */
+@Table(name = "USER")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String usersession;
 	private String username;

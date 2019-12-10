@@ -41,7 +41,7 @@ public class UserController {
         User user = new User();
         user.setCreatetime(new Date());
         user.setUsersession("12345");
-        user.setUsername("惊蛰");
+        user.setUsername("惊蛰1111");
         new ResultVO(iUserService.insertUser(user));
         return new ResultVO("success");
     }

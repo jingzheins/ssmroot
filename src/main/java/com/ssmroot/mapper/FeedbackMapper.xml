@@ -12,5 +12,22 @@
 		<result column="type" property="type" />
 		<result column="createtime" property="createtime" />
 	</resultMap>
+	<insert id="add" parameterType="Feedback" >
+            insert into Feedback ( uname, contactInformation ,kid,umsg,type,createtime) values (#{uname},#{contactInformation},#{kid},#{umsg},#{type},#{createtime})
+        </insert>
 
+	<delete id="delete" parameterType="Feedback" >
+            delete from Feedback where id= #{id}
+        </delete>
+
+	<select id="get" parameterType="Feedback" resultType="Feedback">
+            select * from   Feedback  where id= #{id}
+        </select>
+
+	<update id="update" parameterType="Feedback" >
+            update Feedback set Feedbacksession=#{Feedbacksession},Feedbackname=#{Feedbackname} where id=#{id}
+        </update>
+	<select id="list" resultType="Feedback">
+            select * from   Feedback
+        </select>
 </mapper>
