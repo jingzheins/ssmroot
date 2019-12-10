@@ -14,10 +14,10 @@ import java.util.Map;
  * @author qlq
  * @since 2019-12-03
  */
-public interface IKnowledgeService extends IService<Knowledge> {
+public interface IKnowledgeService {
 
     //返回null或者一条语句
-    public Map<String,Object> matchProblem(String msg);
+    public Knowledge matchProblem(String msg);
 
 
 

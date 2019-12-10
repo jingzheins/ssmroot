@@ -1,6 +1,8 @@
 package com.ssmroot.controller;
 
+import com.ssmroot.pojo.Log;
 import com.ssmroot.pojo.User;
+import com.ssmroot.service.ILogService;
 import com.ssmroot.service.IUserService;
 import com.ssmroot.util.ResultVO;
 import io.swagger.annotations.ApiImplicitParam;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -44,6 +47,16 @@ public class UserController {
         user.setUsername("惊蛰1111");
         new ResultVO(iUserService.insertUser(user));
         return new ResultVO("success");
+    }
+
+    /**
+     * 获取全部用户信息
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "list")
+    public List<User> list(){
+        return iUserService.list();
     }
 
 }

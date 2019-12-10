@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @since 2019-12-03
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     UserMapper userMapper;
@@ -25,5 +27,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public int insertUser(User user) {
         return userMapper.insert(user);
+    }
+
+    @Override
+    public List<User> list() {
+        return userMapper.selectAll();
     }
 }

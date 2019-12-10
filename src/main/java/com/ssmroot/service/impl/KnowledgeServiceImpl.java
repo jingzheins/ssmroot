@@ -1,11 +1,14 @@
 package com.ssmroot.service.impl;
 
+import com.ssmroot.mapper.FeedbackMapper;
 import com.ssmroot.pojo.Knowledge;
 import com.ssmroot.mapper.KnowledgeMapper;
 import com.ssmroot.service.IKnowledgeService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,12 +20,19 @@ import java.util.Map;
  * @since 2019-12-03
  */
 @Service
-public class KnowledgeServiceImpl extends ServiceImpl<KnowledgeMapper, Knowledge> implements IKnowledgeService {
+public class KnowledgeServiceImpl implements IKnowledgeService {
 
-
+    @Autowired
+    private KnowledgeMapper knowledgeMapper;
 
     @Override
-    public Map<String, Object> matchProblem(String msg) {
+    public Knowledge matchProblem(String msg) {
+        List<Knowledge> knowledges = knowledgeMapper.selectAll();
+        for (Knowledge knowledge : knowledges){
+            if(getSimilarityRatio(knowledge.getProblem(),msg)>70){
+                return knowledge;
+            }
+        }
         return null;
     }
 

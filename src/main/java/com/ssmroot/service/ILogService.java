@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.service.IService;
  * @author qlq
  * @since 2019-12-03
  */
-public interface ILogService extends IService<Log> {
-	
+public interface ILogService  {
+
+    void add(Log log);
+
 }
